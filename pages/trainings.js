@@ -1,7 +1,7 @@
 import { Flex, Text } from '@chakra-ui/react'
 import Main from '../templates/main'
 import Image from 'next/image'
-import training1 from "./img/training1.png"
+import training1 from "./img/Training1.png"
 import training2 from "./img/training2.png"
 import training3 from "./img/training3.png"
 import training4 from "./img/training4.png"
