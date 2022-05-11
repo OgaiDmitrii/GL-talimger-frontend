@@ -15,7 +15,7 @@ export default function NavBar(){
     const router = useRouter();
  return (
   <ChakraProvider>
-    <Box mt={10} mb={20}>
+    <Box mt={10} mb={10}>
       <Flex justifyContent="space-between"  backgroundColor="rgba(255,255,255,0.8)" pr={10}>
         <Flex>
           <Image height="136px" width="255px" src={logo} alt="Logo" quality={100} onClick={()=>router.push("/")}/>
@@ -28,6 +28,14 @@ export default function NavBar(){
           fontSize="20px"
           textAlign="center"
         >
+          <Box>
+            <Link 
+                onClick={()=>router.push("/")}
+                _hover={{
+                    color:"grey"
+                }}
+            >Главная страница</Link>
+          </Box>
           <Box>
             <Link 
                 onClick={()=>router.push("/about")}

@@ -56,6 +56,17 @@ export default function Trainings() {
             применения цифровых технологий, менторство, экспертную поддержку и<br/>
             работу в команде.
           </Text>
+        </Flex>
+        <Flex direction="column" width="30%">
+          <Flex direction="row" width="100%" justifyContent="center" alignItems="center">
+            <Image src={training6} quality={100}></Image>
+            <Text width="80%" fontSize={20} color="#FF3399"><b>Самооценка <br/>образовательной <br/>деятельности</b></Text>
+          </Flex>
+          <Text>
+            онлайн платформа для формирования <br/>
+            отчета по самооценке <br/>
+            образовательной деятельности
+          </Text>
           <Flex direction="row" width="100%" justifyContent="center" alignItems="center">
             <Image src={training5} quality={100} ></Image>
             <Flex direction="column" pl="10px" width="80%" >
@@ -68,18 +79,6 @@ export default function Trainings() {
               </Text>
             </Flex>
           </Flex>
-          
-        </Flex>
-        <Flex direction="column" width="30%">
-          <Flex direction="row" width="100%" justifyContent="center" alignItems="center">
-            <Image src={training6} quality={100}></Image>
-            <Text width="80%" fontSize={20} color="#FF3399"><b>Самооценка <br/>образовательной <br/>деятельности</b></Text>
-          </Flex>
-          <Text>
-            онлайн платформа для формирования <br/>
-            отчета по самооценке <br/>
-            образовательной деятельности
-          </Text>
         </Flex>
       </Flex>
     </Main>
