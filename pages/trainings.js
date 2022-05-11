@@ -2,11 +2,11 @@ import { Flex, Text } from '@chakra-ui/react'
 import Main from '../templates/main'
 import Image from 'next/image'
 import training1 from "./img/Training1.png"
-import training2 from "./img/training2.png"
-import training3 from "./img/training3.png"
-import training4 from "./img/training4.png"
-import training5 from "./img/training5.png"
-import training6 from "./img/training6.png"
+import training2 from "./img/Training2.png"
+import training3 from "./img/Training3.png"
+import training4 from "./img/Training4.png"
+import training5 from "./img/Training5.png"
+import training6 from "./img/Training6.png"
 
 export default function Trainings() {
   return (
