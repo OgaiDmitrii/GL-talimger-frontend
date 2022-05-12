@@ -21,6 +21,7 @@ import {
   export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const router = useRouter();
+    const grayC = useColorModeValue('white', 'gray.700');
     return (
     <ChakraProvider>
         <Button  position="absolute" ml={20} mt={10} justifyContent="center" fontSize={18} _hover={{color: "blue.400"}} onClick={()=>router.replace("/")}><b>{"На главную"}</b></Button>
@@ -37,7 +38,7 @@ import {
             </Stack>
             <Box
                 rounded={'lg'}
-                bg={()=>useColorModeValue('white', 'gray.700')}
+                bg={()=>grayC}
                 boxShadow={'lg'}
                 p={8}>
                 <Stack spacing={4}>
