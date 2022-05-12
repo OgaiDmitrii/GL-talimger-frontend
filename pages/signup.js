@@ -18,14 +18,44 @@ import {
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/react';
   import { useRouter } from 'next/router'
   
+  import bkim2 from "../public/bkim2.jpg"
+  import logo from "./img/LogoSmall.png"
+  import Image from "next/image"
+
+  
+  
   export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const router = useRouter();
     const grayC = useColorModeValue('white', 'gray.700');
     return (
     <ChakraProvider>
-        <Button  position="absolute" ml={20} mt={10} justifyContent="center" fontSize={18} _hover={{color: "blue.400"}} onClick={()=>router.replace("/")}><b>{"На главную"}</b></Button>
-        <Flex  bg={useColorModeValue('gray.50', 'gray.800')}
+        <Box position={"absolute"} margin="30px" width="100%">
+          <Image src={logo} onClick={()=>router.replace("/")}/>
+          <Text fontSize={20} mt="1%">САМООЦЕНКА <br/>ОБРАЗОВАТЕЛЬНОЙ <br/>ДЕЯТЕЛЬНОСТИ</Text>
+        </Box>
+        <div id="bgWrap">
+        <Image
+            alt="travel"
+            src={bkim2}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+        />
+      </div>
+      <style jsx>
+        {`
+          #bgWrap {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            z-index: -1;
+            top:0;
+          }
+        `}
+      </style>
+        <Flex  
             align={'center'}
             justify={'center'}
             minH="100vh"

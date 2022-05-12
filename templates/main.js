@@ -40,7 +40,6 @@ export default function Main({children}) {
                     overflow: hidden;
                     z-index: -1;
                     top:0;
-                    background
                 }
                 `}
             </style>

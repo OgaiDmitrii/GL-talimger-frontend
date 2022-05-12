@@ -14,21 +14,47 @@ import {
     ChakraProvider
   } from '@chakra-ui/react';
     import { useRouter } from 'next/router'
+    import Image from "next/image"
+    import bkim2 from "../public/bkim2.jpg"
+    import logo from "./img/LogoSmall.png"
   
   export default function Signin() {
     const router = useRouter();    
     const grayC = useColorModeValue('white', 'gray.700');
     return (
     <ChakraProvider>
-        <Button ml={20} position="absolute" mt={10} justifyContent="center" fontSize={18} _hover={{color: "blue.400"}} onClick={()=>router.replace("/")}><b>{"На главную"}</b></Button>
+        <Box position={"absolute"} margin="30px" width="100%">
+          <Image src={logo} onClick={()=>router.replace("/")}/>
+          <Text fontSize={20} mt="1%">САМООЦЕНКА <br/>ОБРАЗОВАТЕЛЬНОЙ <br/>ДЕЯТЕЛЬНОСТИ</Text>
+        </Box>
+        <div id="bgWrap">
+        <Image
+            alt="travel"
+            src={bkim2}
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+        />
+      </div>
+      <style jsx>
+        {`
+          #bgWrap {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            z-index: -1;
+            top:0;
+          }
+        `}
+      </style>
       <Flex
         minH={'100vh'}
         align={'center'}
-        justify={'center'}
-        bg={useColorModeValue('gray.50', 'gray.800')}>
+        justify={'center'}>
         <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'}>Вход в систему</Heading>
+            <Text fontSize={'4xl'}>Вход в систему</Text>
           </Stack>
           <Box
             rounded={'lg'}
