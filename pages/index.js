@@ -1,16 +1,19 @@
 import Main from '../templates/main'
-import { Box,Flex, Text, List, ListItem } from '@chakra-ui/react'
+import { Box,Flex, Text, List, ListItem,Button } from '@chakra-ui/react'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 import QR from "./img/QR.png"
 import busi from "./img/busi.jpg"
+
 export default function Index() {
   return (
     <Main>
         <Flex  backgroundColor="rgba(255,255,255,0.8)" padding={5} direction="column">
-          <Box width="100%" textAlign="center" mb="1%">
-            <Text fontSize={20}>ОБРАЗОВАТЕЛЬНЫЙ КОНСАЛТИНГ</Text>
-          </Box>
+          <Flex width="100%" textAlign="center" mb="1%" justifyContent="center">
+            <Text fontSize={20} width="80%">ОБРАЗОВАТЕЛЬНЫЙ КОНСАЛТИНГ</Text>
+            <SignIn/>
+          </Flex>
           <Flex>
             <Box width="50%">
               <Flex flexDirection="column"
@@ -40,4 +43,15 @@ export default function Index() {
         </Flex>
     </Main>
   )
+}
+
+function SignIn(){
+const router = useRouter();
+
+  return (
+    <Flex direction="row" justifyContent="space-between">
+        <Button mr="20px" onClick={()=>router.replace("/signin")}>Вход</Button>
+        <Button backgroundColor="#ff66a3">Регистрация</Button>
+    </Flex>
+  );
 }
