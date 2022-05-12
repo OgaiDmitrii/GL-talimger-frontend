@@ -51,7 +51,7 @@ const router = useRouter();
   return (
     <Flex direction="row" justifyContent="space-between">
         <Button mr="20px" onClick={()=>router.replace("/signin")}>Вход</Button>
-        <Button backgroundColor="#ff66a3">Регистрация</Button>
+        <Button backgroundColor="#ff66a3" onClick={()=>router.replace("/signup")}>Регистрация</Button>
     </Flex>
   );
 }
