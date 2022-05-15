@@ -5,7 +5,7 @@ export default async (req, res) => {
   const { identifier, password } = req.body;
   try {
     
-    const response = await axios.post('http://localhost:1337/api/auth/local', {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/local`, {
         identifier,
         password
     });
