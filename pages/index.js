@@ -5,8 +5,34 @@ import { useRouter } from 'next/router'
 
 import QR from "./img/QR.png"
 import busi from "./img/busi.jpg"
+import nookies from "nookies"
+import axios from 'axios'
 
-export default function Index() {
+
+export default function Index(props) {
+  const router = useRouter();
+
+  const loginout = async () => {
+    const {data} = await axios.post("/api/loginout");
+    router.replace("/");
+  }
+  var SignIn = () => {
+    console.log(props.username);
+    if(!props.username)
+      return (
+        <Flex direction="row" justifyContent="space-between">
+            <Button backgroundColor="blue.300" mr="20px" onClick={()=>router.replace("/signin")}>Вход</Button>
+            <Button backgroundColor="red.300" onClick={()=>router.replace("/signup")}>Регистрация</Button>
+        </Flex>
+      );
+    else 
+      return (
+        <Flex direction="row" justifyContent="space-between">
+            <Button backgroundColor="blue.300" mr="20px" onClick={()=>router.replace("/userMainPanel")}>Войти в систему</Button>
+            <Button backgroundColor="red.300" onClick={loginout}>Выход</Button>
+        </Flex>
+      );
+    }
   return (
     <Main>
         <Flex  backgroundColor="rgba(255,255,255,0.8)" padding={5} direction="column">
@@ -45,13 +71,33 @@ export default function Index() {
   )
 }
 
-function SignIn(){
-const router = useRouter();
 
-  return (
-    <Flex direction="row" justifyContent="space-between">
-        <Button mr="20px" onClick={()=>router.replace("/signin")}>Вход</Button>
-        <Button backgroundColor="#ff66a3" onClick={()=>router.replace("/signup")}>Регистрация</Button>
-    </Flex>
-  );
+
+export async function getServerSideProps (ctx){
+  // Get user id   // return props
+  const cookies = nookies.get(ctx)
+  let user = null;
+  if (cookies?.jwt) {
+    try {
+      const { data } = await axios.get('http://localhost:1337/api/users/me', {
+        headers: {
+          Authorization:
+            `Bearer ${cookies.jwt}`,
+          },
+      });
+      user = data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  if (user)
+    user = user.username;
+  else
+    user = "";
+console.log(user);
+      return(
+          {
+              props:{username: user}
+          }
+      );
 }
