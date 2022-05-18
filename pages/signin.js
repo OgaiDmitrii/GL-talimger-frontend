@@ -36,7 +36,7 @@ import {
         return true;
     };
   
-    const initAuth = async () => {
+    const initAuth = async () => { 
         setAlert(false);
         const {data} = await axios.post("/api/login",{
                 "identifier": loginVal,
