@@ -22,4 +22,4 @@ export default async (req, res) => {
         default: res.status(400).send(e.response.data.error.message);
     }
   }
-}
+} 
