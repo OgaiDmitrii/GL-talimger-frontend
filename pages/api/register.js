@@ -4,7 +4,6 @@ import { setCookie } from 'nookies'
 export default async (req, res) => {
   const { username, password, email } = req.body;
   try {
-    console.log(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/local/register`);
     const response = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/local/register`, {
       username,
       email,
