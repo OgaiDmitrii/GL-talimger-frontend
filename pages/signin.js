@@ -38,7 +38,7 @@ import {
   
     const initAuth = async () => { 
         
-        console.log(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/local/register`);
+        console.log(process.env.NEXT_PUBLIC_STRAPI_API_URL);
         setAlert(false);
         const {data} = await axios.post("/api/login",{
                 "identifier": loginVal,
